@@ -1,1 +1,3 @@
 .vs/
+src/RabbitMQInitializer/bin/*
+src/RabbitMQInitializer/obj/*
