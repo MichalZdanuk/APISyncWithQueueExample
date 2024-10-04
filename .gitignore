@@ -1,3 +1,11 @@
 .vs/
 src/RabbitMQInitializer/bin/*
 src/RabbitMQInitializer/obj/*
+src/SystemA.API/bin/*
+src/SystemA.API/obj/*
+src/SystemA.Application/bin/*
+src/SystemA.Application/obj/*
+src/SystemA.Domain/bin/*
+src/SystemA.Domain/obj/*
+src/SystemA.Infrastructure/bin/*
+src/SystemA.Infrastructure/obj/*
