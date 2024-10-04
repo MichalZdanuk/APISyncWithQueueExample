@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: "rabbitmq"
+    ports:
+      - "5672:5672"   # Port for RabbitMQ connections
+      - "15672:15672" # Port for RabbitMQ Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+
+  mssql-system-a:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=Your_password123
+      - ACCEPT_EULA=Y
+
+  mssql-system-b:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1434:1433"
+    environment:
+      - SA_PASSWORD=Your_password123
+      - ACCEPT_EULA=Y
+
+volumes:
+  mssql-a-data:
+  mssql-b-data:
+
+networks:
+  mssql-net:
+    driver: bridge
