@@ -1,4 +1,4 @@
-﻿namespace SystemA.Application.Queues
+﻿namespace Shared.Queues
 {
     public interface IMessage
     {

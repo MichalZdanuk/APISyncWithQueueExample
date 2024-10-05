@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemA.API", "src\SystemA.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemA.Domain", "src\SystemA.Domain\SystemA.Domain.csproj", "{2CF661D1-4801-4AB7-A360-E3812A85AB26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemA.Application", "src\SystemA.Application\SystemA.Application.csproj", "{77FBE333-9B3C-4218-8DF6-7AB087850A10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemA.Application", "src\SystemA.Application\SystemA.Application.csproj", "{77FBE333-9B3C-4218-8DF6-7AB087850A10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemA.Infrastructure", "src\SystemA.Infrastructure\SystemA.Infrastructure.csproj", "{A5CB8BD6-5DEB-4024-A3E5-B54F6860A8B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemA.Infrastructure", "src\SystemA.Infrastructure\SystemA.Infrastructure.csproj", "{A5CB8BD6-5DEB-4024-A3E5-B54F6860A8B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "src\Shared\Shared.csproj", "{9402ED03-542B-4D15-BC05-39D8AC5EACCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemA.Contracts", "src\SystemA.Contracts\SystemA.Contracts.csproj", "{297795FC-21F2-4D45-A60E-8A4399A0C34A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{A5CB8BD6-5DEB-4024-A3E5-B54F6860A8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CB8BD6-5DEB-4024-A3E5-B54F6860A8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CB8BD6-5DEB-4024-A3E5-B54F6860A8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9402ED03-542B-4D15-BC05-39D8AC5EACCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9402ED03-542B-4D15-BC05-39D8AC5EACCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9402ED03-542B-4D15-BC05-39D8AC5EACCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9402ED03-542B-4D15-BC05-39D8AC5EACCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297795FC-21F2-4D45-A60E-8A4399A0C34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297795FC-21F2-4D45-A60E-8A4399A0C34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297795FC-21F2-4D45-A60E-8A4399A0C34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297795FC-21F2-4D45-A60E-8A4399A0C34A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

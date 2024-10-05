@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SystemA.Application.Events;
 using SystemA.Application.Queues;
 using SystemA.Application.Repositories;
+using SystemA.Contracts.Events.Users;
 using SystemA.Domain.Entities;
 
 namespace SystemA.Application.Commands.Users.CreateUser

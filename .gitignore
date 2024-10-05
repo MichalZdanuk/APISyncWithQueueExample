@@ -9,3 +9,7 @@ src/SystemA.Domain/bin/*
 src/SystemA.Domain/obj/*
 src/SystemA.Infrastructure/bin/*
 src/SystemA.Infrastructure/obj/*
+src/SystemA.Contracts/bin/*
+src/SystemA.Contracts/obj/*
+src/Shared/bin/*
+src/Shared/obj/*

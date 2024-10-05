@@ -1,6 +1,6 @@
-﻿using SystemA.Application.Queues;
+﻿using Shared.Queues;
 
-namespace SystemA.Application.Events
+namespace SystemA.Contracts.Events.Users
 {
     public class UserCreatedEvent : IMessage
     {

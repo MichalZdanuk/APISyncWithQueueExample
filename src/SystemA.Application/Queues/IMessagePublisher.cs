@@ -1,4 +1,6 @@
-﻿namespace SystemA.Application.Queues
+﻿using Shared.Queues;
+
+namespace SystemA.Application.Queues
 {
     public interface IMessagePublisher
     {

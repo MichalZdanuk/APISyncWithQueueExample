@@ -1,4 +1,5 @@
 ﻿using RabbitMQ.Client;
+using Shared.Queues;
 using System.Text;
 using System.Text.Json;
 using SystemA.Application.Queues;
