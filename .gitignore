@@ -1,6 +1,7 @@
 .vs/
 src/RabbitMQInitializer/bin/*
 src/RabbitMQInitializer/obj/*
+
 src/SystemA.API/bin/*
 src/SystemA.API/obj/*
 src/SystemA.Application/bin/*
@@ -11,5 +12,15 @@ src/SystemA.Infrastructure/bin/*
 src/SystemA.Infrastructure/obj/*
 src/SystemA.Contracts/bin/*
 src/SystemA.Contracts/obj/*
+
+src/SystemB.API/bin/*
+src/SystemB.API/obj/*
+src/SystemB.Application/bin/*
+src/SystemB.Application/obj/*
+src/SystemB.Domain/bin/*
+src/SystemB.Domain/obj/*
+src/SystemB.Infrastructure/bin/*
+src/SystemB.Infrastructure/obj/*
+
 src/Shared/bin/*
 src/Shared/obj/*
