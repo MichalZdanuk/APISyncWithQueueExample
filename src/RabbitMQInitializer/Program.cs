@@ -16,7 +16,7 @@ try
 
     // 2. Declare an exchange
     string exchangeName = "user_exchange";
-    channel.ExchangeDeclare(exchange: exchangeName, type: "direct");
+    channel.ExchangeDeclare(exchange: exchangeName, type: "direct", durable: true, autoDelete: false);
     ConsoleLogger.LogSuccess($"Exchange '{exchangeName}' created.");
 
     // 3. Declare queues
