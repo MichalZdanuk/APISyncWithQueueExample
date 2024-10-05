@@ -9,6 +9,10 @@ This project consists of two small .NET APIs designed to demonstrate message pub
 - **System A**: Publishes messages to a RabbitMQ exchange.
 - **System B**: Consumes messages from the RabbitMQ queue.
 
+## 🏛️ Architecture
+
+![system_architecture_diagram](https://github.com/user-attachments/assets/7182e812-697a-4174-9b48-b8bd56100c93)
+
 ## 🛠️ Technologies Used
 
 - **.NET 8.0**
