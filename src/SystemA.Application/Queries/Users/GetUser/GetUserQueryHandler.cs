@@ -2,6 +2,7 @@
 using MediatR;
 using SystemA.Application.DTOs.Users;
 using SystemA.Application.Repositories;
+using SystemA.Domain.Exceptions.Users;
 
 namespace SystemA.Application.Queries.Users.GetUser
 {
@@ -14,7 +15,7 @@ namespace SystemA.Application.Queries.Users.GetUser
 
             if(user is null)
             {
-                throw new Exception();
+                throw new UserNotFoundException(query.Id);
             }
 
             var userDto = mapper.Map<UserDto>(user);
