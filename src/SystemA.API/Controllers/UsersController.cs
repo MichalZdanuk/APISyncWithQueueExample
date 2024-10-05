@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SystemA.Application.Commands.Users.CreateUser;
 using SystemA.Application.DTOs.Users;
+using SystemA.Application.Queries.Users.BrowseUsers;
 using SystemA.Application.Queries.Users.GetUser;
 
 namespace SystemA.API.Controllers
@@ -34,7 +35,7 @@ namespace SystemA.API.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> GetUser([FromRoute]Guid id)
+        public async Task<ActionResult<UserDto>> GetUser([FromRoute]Guid id)
         {
             var query = new GetUserQuery(id);
 
@@ -43,5 +44,15 @@ namespace SystemA.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IReadOnlyList<UserDto>>> BrowseUsers()
+        {
+            var query = new BrowseUsersQuery();
+
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
     }
 }

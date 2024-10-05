@@ -6,6 +6,7 @@ namespace SystemA.Application.Repositories
     {
         public void Add(User user);
         public Task<User?> GetAsync(Guid id);
+        public Task<IEnumerable<User>> GetAllAsync();
         public Task SaveChangesAsync();
     }
 }

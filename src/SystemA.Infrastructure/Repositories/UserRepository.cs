@@ -17,6 +17,11 @@ namespace SystemA.Infrastructure.Repositories
             return await dbContext.Set<User>().FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await dbContext.Set<User>().ToListAsync();
+        }
+
         public async Task SaveChangesAsync()
         {
             await dbContext.SaveChangesAsync();
