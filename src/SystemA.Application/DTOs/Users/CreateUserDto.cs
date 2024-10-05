@@ -1,4 +1,4 @@
-﻿namespace SystemA.Application.DTOs
+﻿namespace SystemA.Application.DTOs.Users
 {
     public class CreateUserDto
     {
