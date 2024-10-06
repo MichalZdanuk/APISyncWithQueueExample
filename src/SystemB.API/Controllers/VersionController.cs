@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs;
 
-namespace SystemA.API.Controllers
+namespace SystemB.API.Controllers
 {
     [Route("version")]
     [ApiController]

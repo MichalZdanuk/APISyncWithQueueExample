@@ -1,4 +1,4 @@
-﻿namespace SystemA.Application.DTOs
+﻿namespace Shared.DTOs
 {
     public class APIVersionDto
     {
