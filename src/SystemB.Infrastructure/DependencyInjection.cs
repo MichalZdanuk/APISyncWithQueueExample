@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
+using SystemB.Infrastructure.Data;
 using SystemB.Infrastructure.Queues;
 
 namespace SystemB.Infrastructure
@@ -9,6 +11,10 @@ namespace SystemB.Infrastructure
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<SystemBDbContext>(options =>
+            options.UseSqlServer(connectionString));
+
             services.RegisterRabbitMQ(configuration);
 
             services.AddHostedService<RabbitMqConsumerService>();

@@ -8,6 +8,8 @@ namespace SystemB.Application.Events.External.Users
         {
             Console.WriteLine($"User Created Event Received: {@event.UserName}, {@event.Email}, {@event.DateOfBirth}");
 
+            var name = @event.GetType().Name;
+
             return Task.CompletedTask;
         }
     }
