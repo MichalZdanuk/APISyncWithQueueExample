@@ -10,6 +10,7 @@ namespace SystemB.Application
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IEventHandler<UserCreatedEvent>, UserCreatedEventHandler>();
+            services.AddScoped<IEventHandler<UserUpdatedEvent>, UserUpdatedEventHandler>();
         }
     }
 }

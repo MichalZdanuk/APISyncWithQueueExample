@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using SystemA.Contracts.Events.Users;
 using System.Text;
 using System.Text.Json;
 using SystemB.Application.Events;
@@ -14,7 +13,8 @@ namespace SystemB.Infrastructure.Queues
         private readonly IServiceProvider _serviceProvider;
         private IConnection _connection;
         private IModel _channel;
-        private readonly string _queueName = "UserCreateQueue";
+        private readonly string _exchangeName = "user_exchange";
+        private readonly List<string> _queueNames = new List<string> { "UserCreateQueue", "UserUpdateQueue" };
 
         public RabbitMqConsumerService(ConnectionFactory connectionFactory, IServiceProvider serviceProvider)
         {
@@ -25,28 +25,40 @@ namespace SystemB.Infrastructure.Queues
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _channel.QueueDeclare(queue: _queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
-
-            var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += async (model, ea) =>
+            foreach (var queueName in _queueNames)
             {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
+                _channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                var consumer = new EventingBasicConsumer(_channel);
 
-                var eventType = ea.RoutingKey;
-                if (eventType == "UserCreate")
+                consumer.Received += async (model, ea) =>
                 {
-                    var userCreatedEvent = JsonSerializer.Deserialize<UserCreatedEvent>(message);
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+                    var eventType = ea.RoutingKey;
 
-                    using (var scope = _serviceProvider.CreateScope())
+                    // Get the corresponding event type and deserialize the message
+                    if (MessageTypeMap.EventTypeMap.TryGetValue(eventType, out var eventTypeClass))
                     {
-                        var handler = scope.ServiceProvider.GetRequiredService<IEventHandler<UserCreatedEvent>>();
-                        await handler.Handle(userCreatedEvent);
-                    }
-                }
-            };
+                        var @event = JsonSerializer.Deserialize(message, eventTypeClass);
 
-            _channel.BasicConsume(queue: _queueName, autoAck: true, consumer: consumer);
+                        if (@event != null)
+                        {
+                            using var scope = _serviceProvider.CreateScope();
+                            var handlerType = typeof(IEventHandler<>).MakeGenericType(eventTypeClass);
+                            var handler = scope.ServiceProvider.GetRequiredService(handlerType);
+
+                            var handleMethod = handler.GetType().GetMethod("Handle");
+                            if (handleMethod != null)
+                            {
+                                await (Task)handleMethod.Invoke(handler, new[] { @event });
+                            }
+                        }
+                    }
+                };
+
+                _channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
+            }
+
             return Task.CompletedTask;
         }
 
