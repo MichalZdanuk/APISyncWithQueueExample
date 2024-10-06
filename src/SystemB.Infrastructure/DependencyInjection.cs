@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
+using SystemB.Application.Repositories;
 using SystemB.Infrastructure.Data;
 using SystemB.Infrastructure.Queues;
+using SystemB.Infrastructure.Repositories;
 
 namespace SystemB.Infrastructure
 {
@@ -18,6 +20,7 @@ namespace SystemB.Infrastructure
             services.RegisterRabbitMQ(configuration);
 
             services.AddHostedService<RabbitMqConsumerService>();
+            services.RegisterRepositories();
         }
 
         private static void RegisterRabbitMQ(this IServiceCollection services, IConfiguration configuration)
@@ -30,6 +33,11 @@ namespace SystemB.Infrastructure
                 Password = rabbitMqSettings["Password"]
             };
             services.AddSingleton(factory);
+        }
+
+        private static void RegisterRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IUserEventHistoricalRecordRepository, UserEventHistoricalRecordRepository>();
         }
     }
 }

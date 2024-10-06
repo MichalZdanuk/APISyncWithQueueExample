@@ -19,6 +19,9 @@ namespace SystemB.Infrastructure.Configurations
             builder.Property(x => x.MessageBody)
                 .IsRequired();
 
+            builder.Property(x => x.EventType)
+                .IsRequired();
+
             builder.Property(x => x.ActionDateTimeInUtc)
                 .IsRequired();
         }
