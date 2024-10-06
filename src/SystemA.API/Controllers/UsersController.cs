@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SystemA.Application.Commands.Users.CreateUser;
+using SystemA.Application.Commands.Users.UpdateUser;
 using SystemA.Application.DTOs.Users;
 using SystemA.Application.Queries.Users.BrowseUsers;
 using SystemA.Application.Queries.Users.GetUser;
@@ -53,6 +54,18 @@ namespace SystemA.API.Controllers
             var result = await _mediator.Send(query);
 
             return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> UpdateUser([FromBody]UpdateUserDto dto, [FromRoute]Guid id)
+        {
+            var command = new UpdateUserCommand(id, dto.UserName, dto.Email, dto.DateOfBirth);
+
+            await _mediator.Send(command);
+
+            return Accepted();
         }
     }
 }
