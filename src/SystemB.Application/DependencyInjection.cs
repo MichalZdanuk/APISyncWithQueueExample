@@ -13,6 +13,11 @@ namespace SystemB.Application
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
+            services.AddEventHandlers();
+        }
+
+        private static void AddEventHandlers(this IServiceCollection services)
+        {
             services.AddScoped<IEventHandler<UserCreatedEvent>, UserCreatedEventHandler>();
             services.AddScoped<IEventHandler<UserUpdatedEvent>, UserUpdatedEventHandler>();
         }
