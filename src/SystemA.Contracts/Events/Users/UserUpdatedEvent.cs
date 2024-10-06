@@ -8,15 +8,15 @@ namespace SystemA.Contracts.Events.Users
 
 
         public Guid MessageId { get; }
-        public Guid Id { get; }
+        public Guid UserId { get; }
         public string UserName { get; }
         public string Email { get; }
         public DateTime DateOfBirth { get; }
 
-        public UserUpdatedEvent(Guid id, string userName, string email, DateTime dateOfBirth)
+        public UserUpdatedEvent(Guid userId, string userName, string email, DateTime dateOfBirth)
         {
             MessageId = Guid.NewGuid();
-            Id = id;
+            UserId = userId;
             UserName = userName;
             Email = email;
             DateOfBirth = dateOfBirth;

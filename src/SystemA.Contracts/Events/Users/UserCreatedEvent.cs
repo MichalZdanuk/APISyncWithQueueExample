@@ -6,14 +6,16 @@ namespace SystemA.Contracts.Events.Users
     {
         private UserCreatedEvent() { }
 
-        public Guid Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public Guid MessageId { get; }
+        public Guid UserId { get; }
+        public string UserName { get; }
+        public string Email { get; }
+        public DateTime DateOfBirth { get; }
 
-        public UserCreatedEvent(Guid id, string userName, string email, DateTime dateOfBirth)
+        public UserCreatedEvent(Guid userId, string userName, string email, DateTime dateOfBirth)
         {
-            Id = id;
+            MessageId = Guid.NewGuid();
+            UserId = userId;
             UserName = userName;
             Email = email;
             DateOfBirth = dateOfBirth;
