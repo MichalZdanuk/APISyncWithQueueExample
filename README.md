@@ -49,9 +49,3 @@ Below is a table specifying ports on which is available each component, either f
 | **System A**    | 6000 / 6060    | System responsible for producing entities and publishing event on queue    |
 | **System B**    | 6001 / 6061    | Receiver system that stores events about performed operations in system A  |
 | **Rabbit MQ**   | 5672 / 15672   | Message broker transporting events from Publisher (A) to Subscriber (B)    |
-
-### 📜 Note
-
-- RabbitMQ UI: localhost:15672
-- System A: localhost:5052
-- System B: localhost:5053
