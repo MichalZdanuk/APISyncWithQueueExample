@@ -11,7 +11,7 @@ This project consists of two small .NET APIs (written in Clean Architecture) des
 
 ## 🏛️ Architecture
 
-![system_architecture_diagram](https://github.com/user-attachments/assets/7182e812-697a-4174-9b48-b8bd56100c93)
+![ApiSyncArchitectureDiagram](https://github.com/user-attachments/assets/7edd9b5f-21ef-43f5-b1d3-946bfb1d84be)
 
 ## 🛠️ Technologies Used
 
