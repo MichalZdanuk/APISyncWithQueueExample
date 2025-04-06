@@ -4,8 +4,8 @@ using RabbitMQInitializer;
 var factory = new ConnectionFactory()
 { 
     HostName = "localhost",
-    UserName = "user",
-    Password = "password",
+    UserName = "guest",
+    Password = "guest",
 };
 
 try
