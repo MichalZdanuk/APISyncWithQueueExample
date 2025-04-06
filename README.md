@@ -2,7 +2,7 @@
 
 Simple project for skills self improvement purposes: **.NET API with RabbitMQ Messaging** project! 🎉
 
-This project consists of two small .NET APIs designed to demonstrate message publishing and consumption using RabbitMQ. The primary goal is to learn the basics of configuring message queues and enabling communication between systems. 
+This project consists of two small .NET APIs (written in Clean Architecture) designed to demonstrate message publishing and consumption using RabbitMQ. The primary goal is to learn the basics of configuring message queues and enabling communication between systems manually, without help of external packages like MassTransit or Wolverine. 
 
 ## 🚀 Overview
 
