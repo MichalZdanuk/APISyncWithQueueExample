@@ -31,7 +31,7 @@ This project consists of two small .NET APIs (written in Clean Architecture) des
 git clone git@github.com:MichalZdanuk/APISyncWithQueueExample.git
 cd APISyncWithQueueExample
 ```
-2. Run docker compose with Rabbit and SQL Databases for SystemA and SystemB:
+2. Run docker compose with whole app configured:
 ```bash
 docker-compose up -d
 ```
@@ -41,18 +41,14 @@ cd RabbitMQInitializer
 dotnet build
 dotnet run
 ```
-4. Run System A:
-```bash
-cd SystemA.API
-dotnet build
-dotnet run
-```
-5. Run System B:
-```bash
-cd SystemB.API
-dotnet build
-dotnet run
-```
+
+Below is a table specifying ports on which is available each component, either for **localhost** or when running in **Docker**:
+
+| Service         | Ports          | Description                                                                |
+|-----------------|----------------|----------------------------------------------------------------------------|
+| **System A**    | 6000 / 6060    | System responsible for producing entities and publishing event on queue    |
+| **System B**    | 6001 / 6061    | Receiver system that stores events about performed operations in system A  |
+| **Rabbit MQ**   | 5672 / 15672   | Message broker transporting events from Publisher (A) to Subscriber (B)    |
 
 ### 📜 Note
 
